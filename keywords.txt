@@ -1,0 +1,10 @@
+MouseTo	KEYWORD1
+moveTo	KEYWORD2
+setScreenResolution	KEYWORD2
+getScreenResolutionX	KEYWORD2
+getScreenResolutionY	KEYWORD2
+setCorrectionFactor	KEYWORD2
+getCorrectionFactor	KEYWORD2
+setMaxJump	KEYWORD2
+getMaxJump	KEYWORD2
+
