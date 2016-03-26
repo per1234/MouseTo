@@ -25,7 +25,8 @@ boolean MouseToClass::moveTo(int targetX, int targetY) {
 
   const int moveX = targetX >= positionX ? min(jumpDistance, targetX - positionX) : max(-jumpDistance, targetX - positionX);
   const int moveY = targetY >= positionY ? min(jumpDistance, targetY - positionY) : max(-jumpDistance, targetY - positionY);
-  Mouse.move(moveX, moveY, 0);
+  Mouse.move(moveX, 0, 0);
+  Mouse.move(0, moveY, 0);
   positionX += moveX;
   positionY += moveY;
   if (positionX == targetX && positionY == targetY) {
