@@ -7,7 +7,7 @@ MouseToClass::MouseToClass() {
   screenResolutionX = 3840;  //4K UHD
   screenResolutionY = 2160;  //4K UHD
   correctionFactor = 1;
-  jumpDistance = 127;  //Mouse.move() parameter is int8_t so this is the maximum positive distance that can be moved in one step
+  jumpDistance = 10;  //this seems like a good balance between speed and accuracy
 }
 
 

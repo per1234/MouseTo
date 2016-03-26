@@ -51,8 +51,8 @@ See the example sketches at **File > Examples > MouseTo** for demonstration of l
 - Returns: Correction factor.
   - Type: float
 
-**`MouseTo.setMaxJump(maxJumpDistanceInput)`** - `Mouse.move()` only allows a maximum move of 127 pixels in each axis so longer mouse pointer movements require multiple calls. You will probably not need to change this from the default value but if `moveTo()` is not consistently reaching the target coordinates you could try other `maxJumpDistanceInput` values. You muist recalculate the correction factor whenever this is changed.
-- Parameter: **maxJumpDistanceInput** - The maximum distance(x and y) the mouse pointer can move on each call to `moveTo()`. Allowable values are 1-127. The default value is 127, the maximum jump distance.
+**`MouseTo.setMaxJump(maxJumpDistanceInput)`** - `Mouse.move()` only allows a maximum move of 127 pixels in each axis so longer mouse pointer movements require multiple calls. Smaller values will require more calls to `moveTo()` before the target coordinates are reached, larger values may lead to less accuracy. You must recalculate the correction factor whenever this is changed.
+- Parameter: **maxJumpDistanceInput** - The maximum distance(x and y) the mouse pointer can move on each call to `moveTo()`. Allowable values are 1-127. The default value is 10.
   - Type: int8_t
 - Returns: none
 
