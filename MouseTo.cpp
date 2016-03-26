@@ -23,13 +23,17 @@ boolean MouseToClass::moveTo(int targetX, int targetY) {
   targetX = targetX * correctionFactor;
   targetY = targetY * correctionFactor;
 
-  const int moveX = targetX >= positionX ? min(jumpDistance, targetX - positionX) : max(-jumpDistance, targetX - positionX);
-  const int moveY = targetY >= positionY ? min(jumpDistance, targetY - positionY) : max(-jumpDistance, targetY - positionY);
-  Mouse.move(moveX, 0, 0);
-  Mouse.move(0, moveY, 0);
-  positionX += moveX;
-  positionY += moveY;
-  if (positionX == targetX && positionY == targetY) {
+  if (positionX != targetX) {
+    const int moveX = targetX > positionX ? min(jumpDistance, targetX - positionX) : max(-jumpDistance, targetX - positionX);
+    Mouse.move(moveX, 0, 0);
+    positionX += moveX;
+  }
+  else if (positionY != targetY) {
+    const int moveY = targetY > positionY ? min(jumpDistance, targetY - positionY) : max(-jumpDistance, targetY - positionY);
+    Mouse.move(0, moveY, 0);
+    positionY += moveY;
+  }
+  else { //home or target position reached
     if (homed == false) {  //mouse is homed
       homed = true;
       positionX = 0;
