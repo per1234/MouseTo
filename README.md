@@ -60,6 +60,9 @@ See the example sketches at **File > Examples > MouseTo** for demonstration of l
 - Returns: Maximum jump distance.
   - Type: int8_t
 
+**`MouseTo.home()`** - Re-home the mouse before continuing to the target coordinates. This is useful for cases when `moveTo()` completion was delayed long enough that the mouse pointer may have been moved.
+- Returns: none
+
 
 <a id="process"></a>
 #### `MouseTo.moveTo()` Process

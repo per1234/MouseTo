@@ -18,6 +18,7 @@ class MouseToClass {
     float getCorrectionFactor();
     void setMaxJump(const int8_t jumpDistanceInput);
     int8_t getMaxJump();
+    void home();
   private:
     int positionX;
     int positionY;
