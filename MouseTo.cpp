@@ -11,25 +11,52 @@ MouseToClass::MouseToClass() {
 }
 
 
-boolean MouseToClass::moveTo(int targetX, int targetY) {
+void MouseToClass::setTarget(int targetXinput, int targetYinput) {
+  //convert screen coordinates to Arduino coordinates
+  targetX = targetXinput * correctionFactor;
+  targetY = targetYinput * correctionFactor;
+  homed = false;
+}
+
+
+int MouseToClass::getTargetX() {
+  return targetX;
+}
+
+
+int MouseToClass::getTargetY() {
+  return targetY;
+}
+
+
+//used for compatibility with the previous API
+boolean MouseToClass::moveTo(int targetXinput, int targetYinput) {
+  setTarget(targetXinput, targetYinput);
+  return move();
+}
+
+
+boolean MouseToClass::move() {
   //the mouse is homed to 0,0 on each mouse movement to make sure the absolute screen coordinates will be reached even if the physical mouse has been moved since the last moveTo
+  int moveToTargetX;
+  int moveToTargetY;
   if (homed == false) {
     //make sure it reaches 0,0 even in the worst case scenario of the cursor being at the bottom right corner
-    targetX = -screenResolutionX - 50;
-    targetY = -screenResolutionY - 50;
+    moveToTargetX = -screenResolutionX - 50;
+    moveToTargetY = -screenResolutionY - 50;
+  }
+  else {
+    moveToTargetX = targetX;
+    moveToTargetY = targetY;
   }
 
-  //convert screen coordinates to Arduino corrdinates
-  targetX = targetX * correctionFactor;
-  targetY = targetY * correctionFactor;
-
-  if (positionX != targetX) {
-    const int moveX = targetX > positionX ? min(jumpDistance, targetX - positionX) : max(-jumpDistance, targetX - positionX);
+  if (positionX != moveToTargetX) {
+    const int moveX = moveToTargetX > positionX ? min(jumpDistance, moveToTargetX - positionX) : max(-jumpDistance, moveToTargetX - positionX);
     Mouse.move(moveX, 0, 0);
     positionX += moveX;
   }
-  else if (positionY != targetY) {
-    const int moveY = targetY > positionY ? min(jumpDistance, targetY - positionY) : max(-jumpDistance, targetY - positionY);
+  else if (positionY != moveToTargetY) {
+    const int moveY = moveToTargetY > positionY ? min(jumpDistance, moveToTargetY - positionY) : max(-jumpDistance, moveToTargetY - positionY);
     Mouse.move(0, moveY, 0);
     positionY += moveY;
   }

@@ -19,11 +19,22 @@ Library for [Arduino](https://arduino.cc) Leonardo/Micro for moving the mouse po
 #### Usage
 See the example sketches at **File > Examples > MouseTo** for demonstration of library usage.
 
-**`MouseTo.moveTo(targetX, targetY)`** - Move mouse pointer to absolute screen coordinates. Note that screen coordinates start from the upper left corner.
+**`MouseTo.setTarget(targetX, targetY)`** - Move mouse pointer to absolute screen coordinates. Note that screen coordinates start from the upper left corner.
 - Parameter: **targetX** - X screen coordinate to move to.
   - Type: int
 - Parameter: **targetY** - Y screen coordinate to move to.
   - Type: int
+- Returns: none
+
+**`MouseTo.getTargetX()`** - Get the last X coordinate set by `setTarget()`.
+- Returns: Target X coordinate.
+  - Type: int
+  
+**`MouseTo.getTargetY()`** - Get the last Y coordinate set by `setTarget()`.
+- Returns: Target Y coordinate.
+  - Type: int
+  
+**`MouseTo.move()`** - Move mouse pointer to the target coordinates. Multiple cals to `move()` may be required before the target coordinates are reached.
 - Returns: `true` = target coordinates reached, `false` = target coordinates not yet reached
   - Type: boolean
 

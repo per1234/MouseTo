@@ -20,9 +20,11 @@ void setup() {
 
 void loop() {
   while (digitalRead(pin) == LOW) {
-    while (MouseTo.moveTo(0, 0) == false) {}
+    MouseTo.setTarget(0, 0);
+    while (MouseTo.move() == false) {}
     delay(1000);
-    while (MouseTo.moveTo(450, 0) == false) {}
+    MouseTo.setTarget(450, 0);
+    while (MouseTo.move() == false) {}
     delay(1000);
   }
 }

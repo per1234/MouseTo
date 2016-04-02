@@ -10,7 +10,11 @@
 class MouseToClass {
   public:
     MouseToClass();
-    boolean moveTo(int targetX, int targetY);
+    void setTarget(int targetXinput, int targetYinput);
+    int getTargetX();
+    int getTargetY();
+    boolean moveTo(int targetXinput, int targetYinput);
+    boolean move();
     void setScreenResolution(const int x, const int y);
     unsigned int getScreenResolutionX();
     unsigned int getScreenResolutionY();
@@ -20,6 +24,8 @@ class MouseToClass {
     int8_t getMaxJump();
     void home();
   private:
+    int targetX;
+    int targetY;
     int positionX;
     int positionY;
     boolean homed;

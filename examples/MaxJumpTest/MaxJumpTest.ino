@@ -12,6 +12,7 @@ void setup() {
   Mouse.begin();
   Serial.begin(9600);
   pinMode(pin, INPUT_PULLUP);
+  MouseTo.setTarget(400, 400);
 }
 
 void loop() {
@@ -23,8 +24,9 @@ void loop() {
     Serial.print(F("maxJump="));
     Serial.println(maxJump);
     MouseTo.setMaxJump(maxJump);
-    while (MouseTo.moveTo(400, 400) == false) {}
+    while (MouseTo.move() == false) {}
     delay(3000);
+    MouseTo.home();
   }
 }
 
