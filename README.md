@@ -19,6 +19,9 @@ Library for [Arduino](https://arduino.cc) Leonardo/Micro/Pro Micro for moving th
 #### Usage
 See the example sketches at **File > Examples > MouseTo** for demonstration of library usage.
 
+##### `#include <MouseTo.h>`
+Allow access to the functions of the MouseTo library.
+
 ##### `MouseTo.setTarget(targetX, targetY)`
 Move mouse pointer to absolute screen coordinates. Note that screen coordinates start from the upper left corner.
 - Parameter: **targetX** - X screen coordinate to move to.
