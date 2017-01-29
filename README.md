@@ -87,7 +87,7 @@ Re-home the mouse before continuing to the target coordinates. This is useful fo
 
 
 <a id="process"></a>
-#### `MouseTo.moveTo()` Process
+#### `MouseTo.move()` Process
 - Each call of `MouseTo.move()` moves the pointer up to the maximum jump distance(set by `MouseTo.setMaxJump()`) in the x and y axes.
 - Home mouse pointer to (0, 0).
 - Once the mouse pointer is homed start moving to the target coordinates.
