@@ -11,11 +11,11 @@ MouseToClass::MouseToClass() {
 }
 
 
-void MouseToClass::setTarget(int targetXinput, int targetYinput) {
+void MouseToClass::setTarget(int targetXinput, int targetYinput, const boolean homeFirst) {
   //convert screen coordinates to Arduino coordinates
   targetX = targetXinput * correctionFactor;
   targetY = targetYinput * correctionFactor;
-  homed = false;
+  homed = !homeFirst;
 }
 
 

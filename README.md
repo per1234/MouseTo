@@ -22,12 +22,14 @@ See the example sketches at **File > Examples > MouseTo** for demonstration of l
 ##### `#include <MouseTo.h>`
 Allow access to the functions of the MouseTo library.
 
-##### `MouseTo.setTarget(targetX, targetY)`
+##### `MouseTo.setTarget(targetX, targetY[, homeFirst])`
 Move mouse pointer to absolute screen coordinates. Note that screen coordinates start from the upper left corner.
 - Parameter: **targetX** - X screen coordinate to move to.
   - Type: int
 - Parameter: **targetY** - Y screen coordinate to move to.
   - Type: int
+- Parameter(optional): **homeFirst** - Whether to home the mouse pointer before moving to the target. At a minimum the pointer must be homed before the first use of MouseTo in your code. If homing is not done after that time the accuracy of the mouse pointer movements might suffer, for example if the regular mouse connected to the computer is moved. The default value is `true`.
+  - Type: boolean
 - Returns: none
 
 ##### `MouseTo.getTargetX()`

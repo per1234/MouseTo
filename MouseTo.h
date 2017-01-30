@@ -10,7 +10,7 @@
 class MouseToClass {
   public:
     MouseToClass();
-    void setTarget(int targetXinput, int targetYinput);
+    void setTarget(int targetXinput, int targetYinput, const boolean homeFirst = true);
     int getTargetX();
     int getTargetY();
     boolean moveTo(int targetXinput, int targetYinput);
