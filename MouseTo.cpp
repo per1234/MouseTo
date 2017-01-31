@@ -50,15 +50,19 @@ boolean MouseToClass::move() {
     moveToTargetY = targetY;
   }
 
-  if (positionX != moveToTargetX) {
-    const int moveX = moveToTargetX > positionX ? min(jumpDistance, moveToTargetX - positionX) : max(-jumpDistance, moveToTargetX - positionX);
-    Mouse.move(moveX, 0, 0);
-    positionX += moveX;
-  }
-  else if (positionY != moveToTargetY) {
-    const int moveY = moveToTargetY > positionY ? min(jumpDistance, moveToTargetY - positionY) : max(-jumpDistance, moveToTargetY - positionY);
-    Mouse.move(0, moveY, 0);
-    positionY += moveY;
+  if (positionX != moveToTargetX || positionY != moveToTargetY) {
+    if (positionX != moveToTargetX && (positionY == moveToTargetY || (positionY != moveToTargetY && moveAxisX == true))) {
+      const int moveX = moveToTargetX > positionX ? min(jumpDistance, moveToTargetX - positionX) : max(-jumpDistance, moveToTargetX - positionX);
+      Mouse.move(moveX, 0, 0);
+      positionX += moveX;
+      moveAxisX = false;
+    }
+    else {
+      const int moveY = moveToTargetY > positionY ? min(jumpDistance, moveToTargetY - positionY) : max(-jumpDistance, moveToTargetY - positionY);
+      Mouse.move(0, moveY, 0);
+      positionY += moveY;
+      moveAxisX = true;
+    }
   }
   else { //home or target position reached
     if (homed == false) {  //mouse is homed
