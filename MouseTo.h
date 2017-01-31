@@ -10,10 +10,10 @@
 class MouseToClass {
   public:
     MouseToClass();
-    void setTarget(int targetXinput, int targetYinput, const boolean homeFirst = true);
+    void setTarget(const int targetXinput, const int targetYinput, const boolean homeFirst = true);
     int getTargetX();
     int getTargetY();
-    boolean moveTo(int targetXinput, int targetYinput);
+    boolean moveTo(const int targetXinput, const int targetYinput);
     boolean move();
     void setScreenResolution(const int x, const int y);
     unsigned int getScreenResolutionX();

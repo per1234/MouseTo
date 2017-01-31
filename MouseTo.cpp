@@ -11,7 +11,7 @@ MouseToClass::MouseToClass() {
 }
 
 
-void MouseToClass::setTarget(int targetXinput, int targetYinput, const boolean homeFirst) {
+void MouseToClass::setTarget(const int targetXinput, const int targetYinput, const boolean homeFirst) {
   //convert screen coordinates to Arduino coordinates
   targetX = targetXinput * correctionFactor;
   targetY = targetYinput * correctionFactor;
@@ -30,7 +30,7 @@ int MouseToClass::getTargetY() {
 
 
 //used for compatibility with the previous API
-boolean MouseToClass::moveTo(int targetXinput, int targetYinput) {
+boolean MouseToClass::moveTo(const int targetXinput, const int targetYinput) {
   setTarget(targetXinput, targetYinput);
   return move();
 }
