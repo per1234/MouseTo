@@ -1,0 +1,56 @@
+# This file is used to configure the Travis CI tests of this library
+
+language: bash
+sudo: required
+
+
+env:
+  global:
+    # The Arduino IDE will be installed at APPLICATION_FOLDER/arduino
+    - APPLICATION_FOLDER="/usr/local/share"
+    - SKETCHBOOK_FOLDER="${HOME}/Arduino"
+
+
+before_install:
+  - git clone https://github.com/per1234/arduino-ci-script.git "${HOME}/scripts"
+  - source "${HOME}/scripts/arduino-ci-script.sh"
+
+  # Uncomment the following lines to get verbose output for debugging
+  # Print shell input lines as they are read.
+  #- set_verbose_script_output "true"
+  # Print a trace of simple commands.
+  #- set_more_verbose_script_output "true"
+  # Turn on verbose output during compilation
+  #- set_verbose_output_during_compilation "true"
+
+  # set_parameters arguments: folder to install the Arduino IDE to, Sketchbook folder
+  - set_parameters "$APPLICATION_FOLDER" "$SKETCHBOOK_FOLDER"
+
+
+install:
+  - install_ide "1.6.0" "hourly"
+
+  - install_package "arduino:sam"
+  - install_package "arduino:samd"
+
+  # Install the library from the repository
+  - install_library
+
+
+script:
+  # Compile all example sketches included with the library
+  # build_sketch arguments: sketch name, fqbn, allow failure, IDE version/list/range
+  - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:avr:leonardo" "false" "oldest" "newest"
+  - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:sam:arduino_due_x_dbg" "false" "newest"
+  - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:samd:arduino_zero_edbg" "false" "newest"
+  # Test with the hourly build of the Arduino IDE to get a warning of any incompatibilities created by recent IDE changes but allow failure because failure may be caused by bugs or changes to the IDE that will be reverted.
+  - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:avr:leonardo" "true" "hourly"
+
+  - display_report
+  - check_success
+
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always

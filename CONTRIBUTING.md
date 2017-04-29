@@ -17,6 +17,7 @@ Thanks for your interest in contributing to this free open source project! Pleas
 - Search [existing pull requests and issues](https://github.com/per1234/MouseTo/pulls?q=) to make sure the change hasn't already been proposed.
 - Comment your code. The focus of Arduino is learning so it's best to be a bit more thorough about documenting code.
 - Code must be formatted according to the latest version of the Arduino IDE's **Tools > Auto Format**. If you don't have the Arduino IDE installed you can use [Artistic Style](http://astyle.sourceforge.net) configured according to https://github.com/arduino/Arduino/blob/master/build/shared/lib/formatter.conf. All other formatting should be consistent with the current code.
+- If appropriate, add or update tests in the [.travis.yml file](https://github.com/per1234/WatchdogLog/blob/master/.travis.yml).
 - Update the [documentation](https://github.com/per1234/MouseTo/blob/master/README.md) if your changes require it. This should be done in the same commit as the change.
 - **All commits must be atomic**. This means that the commit completely accomplishes a single task. Each commit should result in fully functional code. Multiple tasks should not be combined in a single commit. For more information please read http://www.freshconsulting.com/atomic-commits.
 - Commit messages: Use the [imperative mood](http://chris.beams.io/posts/git-commit/#imperative) in the commit title. Completely explain the purpose of the commit. Please read http://chris.beams.io/posts/git-commit for more tips on writing good commit messages.
