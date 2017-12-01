@@ -1,6 +1,5 @@
 # This file is used to configure the Travis CI tests of this library
 
-language: bash
 sudo: required
 
 
