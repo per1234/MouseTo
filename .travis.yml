@@ -16,10 +16,8 @@ before_install:
   - source "${HOME}/scripts/arduino-ci-script.sh"
 
   # Uncomment the following lines to get verbose output for debugging
-  # Print shell input lines as they are read.
-  #- set_verbose_script_output "true"
-  # Print a trace of simple commands.
-  #- set_more_verbose_script_output "true"
+  # 0 (minimum/default) - 2 (maximum) verbosity
+  #- set_script_verbosity 2
   # Turn on verbose output during compilation
   #- set_verbose_output_during_compilation "true"
 
