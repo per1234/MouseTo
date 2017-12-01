@@ -12,6 +12,11 @@ env:
 
 before_install:
   - git clone https://github.com/per1234/arduino-ci-script.git "${HOME}/scripts"
+  - cd "${HOME}/scripts"
+  # Get new tags from the remote
+  - git fetch --tags
+  # Checkout the latest tag
+  - git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
   - source "${HOME}/scripts/arduino-ci-script.sh"
 
   # Uncomment the following lines to get verbose output for debugging
