@@ -1,5 +1,6 @@
 # This file is used to configure the Travis CI tests of this library
 
+# Although sudo is not required by arduino-ci-script, for some reason I've experienced that setting "sudo: false" can cause the Travis CI build time to significantly increase so this setting is left as "sudo: required"
 sudo: required
 
 
