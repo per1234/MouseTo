@@ -111,4 +111,3 @@ If you can recommend any free programs, especially non-Windows, which display th
 
 #### Contributing
 Pull requests or issue reports are welcome! Please see the [contribution rules](https://github.com/per1234/MouseTo/blob/master/CONTRIBUTING.md) for instructions.
-

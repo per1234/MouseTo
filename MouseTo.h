@@ -37,4 +37,3 @@ class MouseToClass {
 };
 extern MouseToClass MouseTo;  //declare the class so it doesn't have to be done in the sketch
 #endif  //MouseTo_h
-
