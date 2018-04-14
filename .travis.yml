@@ -46,7 +46,7 @@ before_install:
   - set_application_folder "$APPLICATION_FOLDER"
   - set_sketchbook_folder "$SKETCHBOOK_FOLDER"
 
-  - install_ide "1.6.0" "hourly"
+  - install_ide '("1.6.5-r5" "1.6.9" "1.6.13" "1.8.5" "newest")'
 
   - install_package "arduino:sam"
   - install_package "arduino:samd"
@@ -60,8 +60,6 @@ script:
   - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:avr:leonardo" "false" "oldest" "newest"
   - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:sam:arduino_due_x_dbg" "false" "newest"
   - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:samd:arduino_zero_edbg" "false" "newest"
-  # Test with the hourly build of the Arduino IDE to get a warning of any incompatibilities created by recent IDE changes but allow failure because failure may be caused by bugs or changes to the IDE that will be reverted.
-  - build_sketch "${SKETCHBOOK_FOLDER}/libraries/MouseTo/examples" "arduino:avr:leonardo" "true" "hourly"
 
 
 after_script:
