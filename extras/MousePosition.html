@@ -1,0 +1,15 @@
+<!-- Display the mouse pointer position -->
+<!-- by https://github.com/tttapa -->
+<html>
+<body>
+    Mouse pointer position: (<span id="x">-</span>, <span id="y">-</span>)
+</body>
+<script>
+    const x = document.getElementById("x");
+    const y = document.getElementById("y");
+    document.onmousemove = event => {
+        x.textContent = event.pageX;
+        y.textContent = event.pageY;
+    };
+</script>
+</html>
