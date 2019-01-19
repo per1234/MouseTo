@@ -3,7 +3,6 @@ MouseTo
 Library for [Arduino](https://arduino.cc) Leonardo/Micro/Pro Micro for moving the mouse pointer to absolute screen coordinates.
 
 
-<a id="installation"></a>
 #### Installation
 - Download the most recent version of MouseTo here: https://github.com/per1234/MouseTo/archive/master.zip
 - Using Arduino IDE 1.0.x:
@@ -15,7 +14,6 @@ Library for [Arduino](https://arduino.cc) Leonardo/Micro/Pro Micro for moving th
   - Upload to device
 
 
-<a id="usage"></a>
 #### Usage
 See the example sketches at **File > Examples > MouseTo** for demonstration of library usage.
 
@@ -88,7 +86,6 @@ Re-home the mouse before continuing to the target coordinates. This is useful fo
 - Returns: none
 
 
-<a id="process"></a>
 #### `MouseTo.move()` Process
 - Each call of `MouseTo.move()` moves the pointer up to the maximum jump distance(set by `MouseTo.setMaxJump()`) in the x and y axes.
 - Home mouse pointer to (0, 0).
@@ -107,7 +104,6 @@ For calibration and usage, it is helpful to have a program that displays the cur
   - Set **Pointer location** to on.
 
 
-<a id="alternatives"></a>
 #### Alternatives
 - https://github.com/NicoHood/HID/blob/master/examples/Mouse/AbsoluteMouse/AbsoluteMouse.ino
 - https://github.com/nospam2000/Arduino/commit/7b77d1e84d7b80819f049e5fd6e7bafa0d06521f#diff-0dd97502971c8a55546092b93abd32caR349
