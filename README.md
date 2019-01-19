@@ -96,8 +96,15 @@ Re-home the mouse before continuing to the target coordinates. This is useful fo
 - Once the target coordinates are reached return `true`.
 
 
-#### Help Wanted
-If you can recommend any free programs, especially non-Windows, which display the mouse pointer position please [submit an issue](https://github.com/per1234/MouseTo/issues/new).
+#### Mouse coordinate display software
+For calibration and usage, it is helpful to have a program that displays the current mouse pointer coordinates. Here are some options:
+- **MousePosition.html** (any OS): This file is included with the library in the `extras` folder. Open it with your browser and the mouse coordinates will be displayed there. It will work on any OS. It only works when the mouse pointer is over the browser window. You can set the browser to full screen, move the mouse to the desired position in another window, then use the keyboard to switch back to the browser window (e.g. Alt+Tab) to check the coordinates.
+- **[MousePointer console application](https://github.com/tttapa/MousePointer)** (Windows OS): This program displays the coordinates even when the mouse pointer is not over the application window.
+- `watch -t -n 0.01 xdotool getmouselocation` (Linux or macOS) - [Install xdotool](https://www.semicomplete.com/projects/xdotool/#installing) and then run this command from the terminal. The decimal point in `0.01` is locale-dependent so you may need to change it to `0,01`.
+- **Android developer tools** (Android) - Android has a built-in option to display the pointer coordinates. When using this for calibration, note that it only displays the coordinates while a mouse button is pressed, so you will need to use [`Mouse.press()`](https://www.arduino.cc/reference/en/language/functions/usb/mouse/mousepress/) in your code for this purpose.
+  - Settings > Developer options
+  - Set **Developer options** to on.
+  - Set **Pointer location** to on.
 
 
 <a id="alternatives"></a>
