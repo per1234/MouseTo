@@ -1,1 +1,1 @@
-Read the Pull Requests section of the Contribution Rules at the "guidelines for contributing" link above before submitting a pull request.
+Please read the Pull Requests section of the Contributing Rules at the "contributing" link to the right before submitting an issue report.

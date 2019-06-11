@@ -1,1 +1,1 @@
-Read the Issues section of the Contribution Rules at the "guidelines for contributing" link above before submitting an issue report.
+Please read the Issues section of the Contributing Rules at the "contributing" link to the right before submitting an issue report.
