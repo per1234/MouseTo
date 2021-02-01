@@ -2,6 +2,18 @@
 
 Library for [Arduino](https://arduino.cc) Leonardo/Micro/Pro Micro for moving the mouse pointer to absolute screen coordinates.
 
+## Table of contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [`MouseTo.move()` Process](#mousetomove-process)
+- [Mouse coordinate display software](#mouse-coordinate-display-software)
+- [Alternatives](#alternatives)
+- [Contributing](#contributing)
+
+<!-- tocstop -->
 
 #### Installation
 
