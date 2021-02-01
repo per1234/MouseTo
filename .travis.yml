@@ -31,9 +31,6 @@ before_install:
   # Turn on verbose output during compilation
   #- set_verbose_output_during_compilation "true"
 
-  # Check for library issues that don't affect compilation
-  - set_library_testing "true"
-
   - set_application_folder "$APPLICATION_FOLDER"
   - set_sketchbook_folder "$SKETCHBOOK_FOLDER"
 
