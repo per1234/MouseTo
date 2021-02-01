@@ -1,0 +1,35 @@
+name: Check ToC
+
+env:
+  MAX_DEPTH: 4
+
+# See: https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
+on:
+  push:
+    paths:
+      - ".github/workflows/check-toc.yml"
+      - "README.md"
+  pull_request:
+    paths:
+      - ".github/workflows/check-toc.yml"
+      - "README.md"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout local repository
+        uses: actions/checkout@v2
+
+      - name: Install markdown-toc
+        run: sudo npm install --global markdown-toc
+
+      # See: https://github.com/jonschlinkert/markdown-toc#cli
+      - name: Rebuild ToC
+        run: markdown-toc --bullets=- --maxdepth=${{ env.MAX_DEPTH }} -i "${{ github.workspace }}/README.md"
+
+      - name: Check ToC
+        run: git diff --color --exit-code
