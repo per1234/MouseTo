@@ -17,10 +17,6 @@ env:
 
 
 before_install:
-  # Check for commonly misspelled words https://github.com/codespell-project/codespell
-  - pip install codespell
-  - codespell "${TRAVIS_BUILD_DIR}"
-
   - git clone https://github.com/per1234/arduino-ci-script.git "${HOME}/scripts/arduino-ci-script"
   - cd "${HOME}/scripts/arduino-ci-script"
   # Get new tags from the remote
