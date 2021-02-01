@@ -1,0 +1,33 @@
+# Source: https://github.com/arduino/.github/blob/master/workflow-templates/check-yaml.yml
+name: Check YAML
+
+# See: https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
+on:
+  push:
+    paths:
+      - ".github/workflows/check-yaml.yml"
+      - "**/.yamllint*"
+      - "**.yaml"
+      - "**.yml"
+  pull_request:
+    paths:
+      - ".github/workflows/check-yaml.yml"
+      - "**/.yamllint*"
+      - "**.yaml"
+      - "**.yml"
+  schedule:
+    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to yamllint.
+    - cron: "0 8 * * TUE"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Check YAML
+        run: yamllint --config-file "${{ github.workspace }}/.github/.yamllint.yml" .
