@@ -1,0 +1,48 @@
+name: Check Workflows
+
+# See: https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
+on:
+  push:
+    paths:
+      - ".github/workflows/*.yaml"
+      - ".github/workflows/*.yml"
+  pull_request:
+    paths:
+      - ".github/workflows/*.yaml"
+      - ".github/workflows/*.yml"
+  schedule:
+    # Run every Tuesday at 8 AM UTC to catch breakage resulting from changes to the JSON schema.
+    - cron: "0 8 * * TUE"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    env:
+      JSON_SCHEMA_FOLDER: etc/github-workflow-json-schema
+      JSON_SCHEMA_FILENAME: github-workflow.json
+
+    steps:
+      - name: Checkout local repository
+        uses: actions/checkout@v2
+
+      - name: Download JSON schema for GitHub Actions workflows
+        uses: carlosperate/download-file-action@v1.0.3
+        with:
+          # See: https://github.com/SchemaStore/schemastore/blob/master/src/schemas/json/github-workflow.json
+          file-url: https://json.schemastore.org/github-workflow
+          location: ${{ env.JSON_SCHEMA_FOLDER }}
+          file-name: ${{ env.JSON_SCHEMA_FILENAME }}
+
+      - name: Install JSON schema validator
+        run: sudo npm install --global ajv-cli
+
+      - name: Validate GitHub Actions workflows
+        run: |
+          # See: https://github.com/ajv-validator/ajv-cli#readme
+          ajv \
+            --strict=false \
+            -s "${{ env.JSON_SCHEMA_FOLDER }}/${{ env.JSON_SCHEMA_FILENAME }}" \
+            -d "./.github/workflows/*.{yml,yaml}"
