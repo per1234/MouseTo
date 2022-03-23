@@ -142,7 +142,6 @@ For calibration and usage, it is helpful to have a program that displays the cur
 
 - https://github.com/NicoHood/HID/blob/master/examples/Mouse/AbsoluteMouse/AbsoluteMouse.ino
 - https://github.com/nospam2000/Arduino/commit/7b77d1e84d7b80819f049e5fd6e7bafa0d06521f#diff-0dd97502971c8a55546092b93abd32caR349
-- https://github.com/keyboardio/Arduino/commit/a520873aba7f2c99eda6c9b1979df170939d9f68
 - http://forum.arduino.cc/index.php?topic=94140.0
 - https://www.pjrc.com/teensy/td_mouse.html
 
